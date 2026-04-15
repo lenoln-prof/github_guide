@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia GitHub para Iniciantes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .card-icon {
+            font-size: 1.5em;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: #e9ecef;
+            color: #333;
+            border: 1px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist li::before {
+            content: "☐";
+            font-size: 1.2em;
+            color: #667eea;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .warning::before {
+            content: "⚠️ ";
+            font-weight: bold;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .success::before {
+            content: "✅ ";
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        
+        .emoji {
+            display: inline-block;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content, header, footer {
+                padding: 20px;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Guia GitHub para Iniciantes</h1>
+            <p>Aprenda a usar Git e GitHub do Zero! • Windows • Português do Brasil</p>
+        </header>
+        
+        <div class="content">
+            <!-- Seção de Bem-vindo -->
+            <div class="section">
+                <h2><span class="emoji">👋</span>Bem-vindo!</h2>
+                <p style="font-size: 1.05em; margin-bottom: 15px;">
+                    Este é um guia completo e didático para você aprender do zero como usar GitHub e Git no Windows. 
+                    Não é necessário nenhum conhecimento prévio - você aprenderá tudo passo a passo!
+                </p>
+                <div class="success">
+                    Leia os arquivos nesta ordem para melhor aprendizado!
+                </div>
+            </div>
+            
+            <!-- Arquivos Principais -->
+            <div class="section">
+                <h2><span class="emoji">📚</span>Arquivos do Guia</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3><span class="card-icon">📖</span>Guia Principal</h3>
+                        <p>O guia completo com todas as explicações, passo a passo, exemplos práticos e melhores práticas.</p>
+                        <div class="btn-container">
+                            <a href="guia_github_iniciantes.md" class="btn btn-primary">Abrir .md</a>
+                            <a href="guia_github_iniciantes.pdf" class="btn btn-secondary">Ver PDF</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><span class="card-icon">⚡</span>Referência Rápida</h3>
+                        <p>Comandos Git essenciais, exemplos de mensagens de commit e soluções para erros comuns.</p>
+                        <div class="btn-container">
+                            <a href="REFERENCIA_RAPIDA.md" class="btn btn-primary">Abrir</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3><span class="card-icon">📊</span>Diagramas Visuais</h3>
+                        <p>Diagramas em texto que ilustram conceitos, fluxos e estruturas do Git/GitHub.</p>
+                        <div class="btn-container">
+                            <a href="DIAGRAMAS_VISUAIS.md" class="btn btn-primary">Abrir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo do Guia -->
+            <div class="section">
+                <h2><span class="emoji">📋</span>O que você aprenderá</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>1. O que é GitHub?</h3>
+                        <p>Entenda os conceitos básicos e por que GitHub é importante para desenvolvedores.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. Criar Conta</h3>
+                        <p>Passo a passo para criar sua primeira conta GitHub gratuitamente.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Primeiro Repositório</h3>
+                        <p>Como criar seu primeiro repositório e configurá-lo corretamente.</p>
+                    </div>
+                    <div class="card">
+                        <h3>4. Instalar Git</h3>
+                        <p>Instalação do Git no Windows com verificação da instalação.</p>
+                    </div>
+                    <div class="card">
+                        <h3>5. Configurar Git</h3>
+                        <p>Configuração inicial de nome de usuário e email no Git.</p>
+                    </div>
+                    <div class="card">
+                        <h3>6. Personal Access Token</h3>
+                        <p>Como criar um token seguro para autenticação no GitHub (obrigatório!).</p>
+                    </div>
+                    <div class="card">
+                        <h3>7. Enviar Arquivos</h3>
+                        <p>O fluxo completo: clonar, adicionar, fazer commit e fazer push.</p>
+                    </div>
+                    <div class="card">
+                        <h3>8. Boas Práticas</h3>
+                        <p>Dicas profissionais para mensagens de commit e organização de projetos.</p>
+                    </div>
+                    <div class="card">
+                        <h3>9. Troubleshooting</h3>
+                        <p>Erros comuns e como resolvê-los rapidamente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Checklist de Aprendizado -->
+            <div class="section">
+                <h2><span class="emoji">✅</span>Seu Progresso</h2>
+                <div class="checklist">
+                    <ul>
+                        <li>Criei uma conta no GitHub</li>
+                        <li>Criei meu primeiro repositório</li>
+                        <li>Instalei o Git no Windows</li>
+                        <li>Configurei nome de usuário e email no Git</li>
+                        <li>Criei um Personal Access Token</li>
+                        <li>Clonei um repositório para meu computador</li>
+                        <li>Adicionei arquivos locais ao repositório</li>
+                        <li>Fiz meu primeiro commit</li>
+                        <li>Enviei (push) arquivos para o GitHub</li>
+                        <li>Verifiquei os arquivos online no GitHub</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Dicas Importantes -->
+            <div class="section">
+                <h2><span class="emoji">💡</span>Dicas Importantes</h2>
+                
+                <div class="warning">
+                    O GitHub não aceita mais sua senha comum. Você PRECISA de um Personal Access Token para fazer push!
+                </div>
+                
+                <div class="success">
+                    Pratique regularmente - é assim que você aprende de verdade. Não tenha medo de cometer erros!
+                </div>
+                
+                <p style="margin-top: 15px; padding: 15px; background: #e7f3ff; border-left: 4px solid #0066cc; border-radius: 5px;">
+                    <strong>📌 Dica:</strong> Mantenha este index.html aberto como sua página inicial do guia. Ele oferece acesso rápido a todos os recursos!
+                </p>
+            </div>
+            
+            <!-- Recursos Adicionais -->
+            <div class="section">
+                <h2><span class="emoji">🔗</span>Recursos Adicionais</h2>
+                <p style="margin-bottom: 15px;">Depois de dominar o básico, explore esses recursos:</p>
+                <div class="cards">
+                    <div class="card">
+                        <h3>GitHub Docs</h3>
+                        <p>Documentação oficial do GitHub em português</p>
+                        <a href="https://docs.github.com/pt" class="btn btn-primary" style="width: 100%; text-align: center;">Acessar</a>
+                    </div>
+                    <div class="card">
+                        <h3>Pro Git Book</h3>
+                        <p>Livro completo sobre Git em português</p>
+                        <a href="https://git-scm.com/book/pt-br/v2" class="btn btn-primary" style="width: 100%; text-align: center;">Acessar</a>
+                    </div>
+                    <div class="card">
+                        <h3>Git Website</h3>
+                        <p>Site oficial do Git com downloads</p>
+                        <a href="https://git-scm.com/" class="btn btn-primary" style="width: 100%; text-align: center;">Acessar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Como Usar Este Guia -->
+            <div class="section">
+                <h2><span class="emoji">🎓</span>Como Usar Este Guia</h2>
+                <ol style="padding-left: 20px; line-height: 2;">
+                    <li><strong>Leia na ordem:</strong> Comece pelo "Guia Principal" do início ao fim</li>
+                    <li><strong>Pratique:</strong> Execute os passos enquanto lê</li>
+                    <li><strong>Consulte a Referência:</strong> Use "Referência Rápida" quando precisar dos comandos</li>
+                    <li><strong>Visualize:</strong> Veja "Diagramas Visuais" para entender melhor os conceitos</li>
+                    <li><strong>Revise:</strong> Volte aos tópicos conforme necessário</li>
+                    <li><strong>Pratique novamente:</strong> Crie múltiplos repositórios para praticar</li>
+                </ol>
+            </div>
+            
+            <!-- Próximos Passos -->
+            <div class="section">
+                <h2><span class="emoji">🚀</span>Próximos Passos</h2>
+                <p style="margin-bottom: 15px;">Após dominar o básico, explore:</p>
+                <ul style="padding-left: 20px; line-height: 2;">
+                    <li><strong>Branches:</strong> Trabalhe em diferentes versões do código</li>
+                    <li><strong>Pull Requests:</strong> Contribua com projetos de outras pessoas</li>
+                    <li><strong>Colaboração:</strong> Trabalhe em equipe com amigos e colegas</li>
+                    <li><strong>GitHub Pages:</strong> Crie um site gratuito com GitHub</li>
+                    <li><strong>GitHub Actions:</strong> Automatize tarefas (testes, deploy)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>
+                <strong>Guia GitHub para Iniciantes</strong> • v1.0 • Português do Brasil<br>
+                Criado com ❤️ para iniciantes aprenderem de forma didática<br>
+                <small>Última atualização: 2024</small>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

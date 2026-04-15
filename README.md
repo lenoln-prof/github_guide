@@ -138,7 +138,7 @@ Se encontrar algum erro ou tiver sugestões:
 ## 📄 Informações do Documento
 
 - **Versão**: 1.0
-- **Última atualização**: 2024
+- **Última atualização**: 2025
 - **Linguagem**: Português do Brasil
 - **Formato**: Markdown + PDF
 - **Nível**: Iniciante (Zero conhecimento prévio)
